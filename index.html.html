@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kush Enterprises India – Electrical Products Exporter</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #143057;
+    --navy-light: #1D4170;
+    --gold: #C8922A;
+    --gold-light: #E5B050;
+    --gold-pale: #FDF3E0;
+    --white: #FFFFFF;
+    --off-white: #F8F6F1;
+    --gray-light: #ECEAE4;
+    --gray-mid: #8A8880;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4845;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--text-dark); background: var(--white); line-height: 1.7; }
+  h1, h2, h3, .logo-text { font-family: 'Playfair Display', serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11,31,58,0.97);
+    border-bottom: 1px solid rgba(200,146,42,0.25);
+    padding: 0 4%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-icon { width: 40px; height: 40px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); }
+  .logo-text { font-size: 17px; font-weight: 600; color: var(--white); line-height: 1.2; }
+  .logo-sub { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 300; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta { background: var(--gold) !important; color: var(--white) !important; padding: 8px 20px; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding: 100px 4% 60px; }
+  .hero-bg { position: absolute; inset: 0; background-image: radial-gradient(circle at 70% 50%, rgba(200,146,42,0.08) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(29,65,112,0.6) 0%, transparent 50%); pointer-events: none; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(200,146,42,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(200,146,42,0.06) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+  .hero-content { position: relative; z-index: 1; max-width: 680px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.4); border-radius: 50px; padding: 6px 16px; font-size: 12px; font-weight: 500; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 28px; }
+  .badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  .hero h1 { font-size: clamp(36px, 5vw, 62px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 24px; }
+  .hero h1 span { color: var(--gold); }
+  .hero-desc { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 40px; max-width: 520px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-primary { background: var(--gold); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; border: 2px solid var(--gold); }
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); transition: all 0.2s; }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+  .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 10px; }
+  .trust-icon { width: 36px; height: 36px; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .trust-label { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.3; }
+  .trust-label strong { display: block; color: var(--white); font-weight: 600; font-size: 14px; }
+
+  .reg-strip { background: rgba(6,15,29,0.95); padding: 16px 4%; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; border-bottom: 1px solid rgba(200,146,42,0.2); }
+  .reg-item { text-align: center; }
+  .reg-item-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+  .reg-item-value { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 2px; }
+
+  .section { padding: 96px 4%; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); padding: 96px 4%; }
+  .section-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 16px; }
+  .section-title-light { color: var(--white) !important; }
+  .section-desc { font-size: 17px; color: var(--text-mid); max-width: 560px; line-height: 1.8; margin-bottom: 56px; }
+  .divider { width: 56px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0 28px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-visual { background: var(--navy); border-radius: 16px; padding: 40px; }
+  .about-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .about-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,146,42,0.2); border-radius: 10px; padding: 20px; }
+  .about-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .about-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+  .about-content p { font-size: 16px; color: var(--text-mid); line-height: 1.9; margin-bottom: 20px; }
+  .cert-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .cert-badge { display: flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 500; border: 1px solid rgba(200,146,42,0.3); }
+  .cert-check { width: 18px; height: 18px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; flex-shrink: 0; }
+
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .product-card { background: var(--white); border: 1px solid var(--gray-light); border-radius: 14px; padding: 32px 28px; transition: all 0.25s; position: relative; overflow: hidden; }
+  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .product-card:hover { box-shadow: 0 8px 32px rgba(11,31,58,0.1); transform: translateY(-3px); border-color: rgba(200,146,42,0.3); }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-icon { width: 52px; height: 52px; background: var(--gold-pale); border: 1px solid rgba(200,146,42,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+  .product-card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .product-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+  .product-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .product-tag { font-size: 11px; font-weight: 500; color: var(--navy-mid); background: var(--off-white); border: 1px solid var(--gray-light); padding: 3px 10px; border-radius: 50px; }
+  .product-link { font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; }
+  .product-link:hover { color: var(--gold-light); }
+
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .why-card { background: var(--white); border: 1px solid var(--gray-light); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.25s; }
+  .why-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,146,42,0.1); }
+  .why-icon { width: 64px; height: 64px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px; }
+  .why-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .why-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  .markets-wrap { display: flex; flex-wrap: wrap; gap: 14px; }
+  .market-chip { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--gray-light); border-radius: 50px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--navy); transition: all 0.2s; }
+  .market-chip:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-info p { color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.8; margin-bottom: 32px; }
+  .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .contact-icon-wrap { width: 44px; height: 44px; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-label { font-size: 12px; font-weight: 500; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+  .contact-value { font-size: 15px; color: rgba(255,255,255,0.85); margin-top: 2px; }
+  .contact-value a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .contact-value a:hover { color: var(--gold-light); }
+
+  .form-card { background: var(--white); border-radius: 16px; padding: 40px; }
+  .form-card h3 { font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--text-mid); margin-bottom: 6px; }
+  input, select, textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--gray-light); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text-dark); background: var(--off-white); transition: border-color 0.2s; outline: none; appearance: none; }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); background: var(--white); box-shadow: 0 0 0 3px rgba(200,146,42,0.1); }
+  textarea { resize: vertical; min-height: 110px; }
+  .submit-btn { width: 100%; background: var(--gold); color: var(--white); padding: 14px; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 8px; }
+  .submit-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  footer { background: var(--navy); border-top: 1px solid rgba(200,146,42,0.2); padding: 48px 4%; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 320px; margin-top: 12px; }
+  .footer-col h4 { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom { background: #060F1D; padding: 18px 4%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s; }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid, .contact-wrap, footer { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .reg-strip { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="logo-icon">KE</div>
+    <div>
+      <div class="logo-text">Kush Enterprises</div>
+      <div class="logo-sub">India · Est. 2024</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="badge-dot"></div>IEC Registered Indian Exporter</div>
+    <h1>Trusted Exporter of <span>Premium Electrical</span> Products from India</h1>
+    <p class="hero-desc">Sourcing quality switchgear, cables, solar components &amp; automation products from Gurugram, India — for buyers across the globe.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Quote</a>
+      <a href="#products" class="btn-outline">View Products</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-icon">🏛️</div>
+        <div class="trust-label"><strong>GST Registered</strong>Proprietorship Firm</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🌐</div>
+        <div class="trust-label"><strong>IEC Code Holder</strong>Govt. of India</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <div class="trust-label"><strong>Based in Gurugram</strong>Haryana, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="reg-strip">
+  <div class="reg-item"><div class="reg-item-label">GST Number</div><div class="reg-item-value">06ARHPY0628A1ZZ</div></div>
+  <div class="reg-item"><div class="reg-item-label">IEC Code</div><div class="reg-item-value">ARHPY0628A</div></div>
+  <div class="reg-item"><div class="reg-item-label">Firm Type</div><div class="reg-item-value">Proprietorship</div></div>
+  <div class="reg-item"><div class="reg-item-label">Location</div><div class="reg-item-value">Gurugram, Haryana, India</div></div>
+</div>
+
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-stat-grid">
+        <div class="about-stat"><div class="about-stat-num">10+</div><div class="about-stat-label">Years family expertise in electrical trade</div></div>
+        <div class="about-stat"><div class="about-stat-num">50+</div><div class="about-stat-label">Product categories available for export</div></div>
+        <div class="about-stat"><div class="about-stat-num">Pan</div><div class="about-stat-label">India sourcing network for best pricing</div></div>
+        <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">Legitimate, registered exporting entity</div></div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-title">Rooted in Electrical Trade, Built for Global Reach</h2>
+      <div class="divider"></div>
+      <p>Kush Enterprises is a Gurugram-based export firm specialising in electrical components and industrial products. Our foundation rests on over a decade of hands-on experience in electrical retail — giving us direct access to verified suppliers, genuine product knowledge, and competitive pricing that many exporters simply cannot match.</p>
+      <p>We are a fully registered proprietorship with a valid GST number and IEC (Importer Exporter Code) issued by the Government of India — making every transaction transparent, compliant, and trustworthy.</p>
+      <p>Our mission is simple: connect international buyers with quality Indian electrical products at fair prices, backed by reliable communication and honest dealing.</p>
+      <div class="cert-badges">
+        <div class="cert-badge"><div class="cert-check">✓</div>GST Registered Firm</div>
+        <div class="cert-badge"><div class="cert-check">✓</div>IEC Code — Govt. of India</div>
+        <div class="cert-badge"><div class="cert-check">✓</div>Proprietorship Firm</div>
+        <div class="cert-badge"><div class="cert-check">✓</div>Gurugram, Haryana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="products">
+  <div class="section-tag">Our Products</div>
+  <h2 class="section-title">Electrical Products We Export</h2>
+  <div class="divider"></div>
+  <p class="section-desc">From switchgear to solar components — we source and export a wide range of quality electrical products suited to industrial, commercial, and residential applications worldwide.</p>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon">⚡</div>
+      <h3>MCBs, MCCBs &amp; Switchgear</h3>
+      <p>High-quality miniature and moulded case circuit breakers, isolators and switchgear products sourced from trusted Indian manufacturers.</p>
+      <div class="product-tags"><span class="product-tag">MCB</span><span class="product-tag">MCCB</span><span class="product-tag">RCCB</span><span class="product-tag">ELCB</span><span class="product-tag">Isolators</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🔧</div>
+      <h3>Distribution Boards &amp; Panels</h3>
+      <p>Indoor and outdoor distribution boards, main panels and sub-panels designed for safe and efficient power distribution systems.</p>
+      <div class="product-tags"><span class="product-tag">DB Boxes</span><span class="product-tag">MCB DB</span><span class="product-tag">SPN / TPN</span><span class="product-tag">Metal Enclosures</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🔌</div>
+      <h3>Wires &amp; Cables</h3>
+      <p>ISI marked FR, FRLS, and flexible wires along with armoured and unarmoured power cables for domestic and industrial use.</p>
+      <div class="product-tags"><span class="product-tag">FR Wires</span><span class="product-tag">FRLS Cables</span><span class="product-tag">Flexible</span><span class="product-tag">Armoured</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🔩</div>
+      <h3>Industrial Plugs, Sockets &amp; Isolators</h3>
+      <p>Heavy-duty industrial-grade plugs, sockets and rotary isolators for factories, plants, and commercial applications.</p>
+      <div class="product-tags"><span class="product-tag">Industrial Plugs</span><span class="product-tag">Socket Outlets</span><span class="product-tag">Rotary Isolators</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">☀️</div>
+      <h3>Solar Electrical Components</h3>
+      <p>DC isolators, solar-specific MCBs, combiner boxes and balance-of-system components for residential and utility solar projects.</p>
+      <div class="product-tags"><span class="product-tag">DC Isolators</span><span class="product-tag">Solar MCBs</span><span class="product-tag">Combiner Boxes</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">⚙️</div>
+      <h3>Automation &amp; Control Gear</h3>
+      <p>Contactors, auxiliary relays, timers, soft starters and motor protection components for industrial automation and control panels.</p>
+      <div class="product-tags"><span class="product-tag">Contactors</span><span class="product-tag">Relays</span><span class="product-tag">Timers</span><span class="product-tag">Soft Starters</span></div>
+      <a href="#contact" class="product-link">Request Quote →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why-us">
+  <div class="section-tag">Why Choose Us</div>
+  <h2 class="section-title">Why Buyers Trust Kush Enterprises</h2>
+  <div class="divider"></div>
+  <p class="section-desc">We understand that trust is earned. Every aspect of our business is built to give international buyers complete confidence in dealing with us.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🏛️</div><h3>Fully Registered Entity</h3><p>GST-registered firm with a valid IEC code issued by the Government of India. Fully compliant and legally authorised to export.</p></div>
+    <div class="why-card"><div class="why-icon">🔍</div><h3>Quality-Checked Products</h3><p>All products are sourced from reputable Indian manufacturers with ISI, BIS or equivalent certifications for your peace of mind.</p></div>
+    <div class="why-card"><div class="why-icon">💰</div><h3>Competitive Pricing</h3><p>Direct access to manufacturer and distributor networks in Gurugram ensures factory-close pricing without middlemen markups.</p></div>
+    <div class="why-card"><div class="why-icon">📦</div><h3>Reliable Delivery</h3><p>We handle documentation, packing, and freight coordination — ensuring your shipment arrives correctly and on time.</p></div>
+    <div class="why-card"><div class="why-icon">💬</div><h3>Clear Communication</h3><p>Direct contact with the owner — no agents, no delays. Honest answers, quick quotes, and real updates on every order.</p></div>
+    <div class="why-card"><div class="why-icon">🌏</div><h3>Export-Ready Operations</h3><p>From invoice to shipping bill — we manage all export procedures, customs clearance and freight forwarding for a smooth experience.</p></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="markets">
+  <div class="section-tag">Export Markets</div>
+  <h2 class="section-title">Countries We Serve</h2>
+  <div class="divider"></div>
+  <p class="section-desc">We export Indian electrical products to buyers across Africa, the Middle East, South &amp; Southeast Asia and beyond. Reach out to discuss your country's specific requirements.</p>
+  <div class="markets-wrap">
+    <div class="market-chip"><span style="font-size:20px">🇸🇦</span>Saudi Arabia</div>
+    <div class="market-chip"><span style="font-size:20px">🇦🇪</span>UAE</div>
+    <div class="market-chip"><span style="font-size:20px">🇳🇬</span>Nigeria</div>
+    <div class="market-chip"><span style="font-size:20px">🇰🇪</span>Kenya</div>
+    <div class="market-chip"><span style="font-size:20px">🇹🇿</span>Tanzania</div>
+    <div class="market-chip"><span style="font-size:20px">🇬🇭</span>Ghana</div>
+    <div class="market-chip"><span style="font-size:20px">🇪🇹</span>Ethiopia</div>
+    <div class="market-chip"><span style="font-size:20px">🇧🇩</span>Bangladesh</div>
+    <div class="market-chip"><span style="font-size:20px">🇳🇵</span>Nepal</div>
+    <div class="market-chip"><span style="font-size:20px">🇱🇰</span>Sri Lanka</div>
+    <div class="market-chip"><span style="font-size:20px">🇲🇾</span>Malaysia</div>
+    <div class="market-chip"><span style="font-size:20px">🇴🇲</span>Oman</div>
+    <div class="market-chip"><span style="font-size:20px">🇶🇦</span>Qatar</div>
+    <div class="market-chip"><span style="font-size:20px">🇰🇼</span>Kuwait</div>
+    <div class="market-chip"><span style="font-size:20px">🌍</span>Other Countries</div>
+  </div>
+</section>
+
+<div class="section-dark" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="section-tag">Contact Us</div>
+      <h2 class="section-title section-title-light">Let's Start a Conversation</h2>
+      <div class="divider"></div>
+      <p>Send us your product requirements and we'll get back to you with pricing, availability and lead time — usually within 24 hours.</p>
+      <div class="contact-detail">
+        <div class="contact-icon-wrap">📧</div>
+        <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:sales@kushenterprisesindia.com">sales@kushenterprisesindia.com</a></div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-wrap">💬</div>
+        <div><div class="contact-label">WhatsApp</div><div class="contact-value"><a href="https://wa.me/917838051311" target="_blank">+91 78380 51311</a></div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-wrap">📍</div>
+        <div><div class="contact-label">Location</div><div class="contact-value">Gurugram, Haryana, India</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon-wrap">🌐</div>
+        <div><div class="contact-label">Website</div><div class="contact-value"><a href="https://www.kushenterprisesindia.com" target="_blank">www.kushenterprisesindia.com</a></div></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Send an Inquiry</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name *</label><input type="text" id="fname" placeholder="Full name"></div>
+        <div class="form-group"><label>Company Name</label><input type="text" id="company" placeholder="Your company"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label>Country *</label>
+          <select id="country">
+            <option value="">Select country</option>
+            <option>UAE</option><option>Saudi Arabia</option><option>Nigeria</option>
+            <option>Kenya</option><option>Bangladesh</option><option>Nepal</option>
+            <option>Malaysia</option><option>Qatar</option><option>Oman</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Product of Interest</label>
+        <select id="product">
+          <option value="">Select product category</option>
+          <option>MCBs, MCCBs &amp; Switchgear</option>
+          <option>Distribution Boards &amp; Panels</option>
+          <option>Wires &amp; Cables</option>
+          <option>Industrial Plugs, Sockets &amp; Isolators</option>
+          <option>Solar Electrical Components</option>
+          <option>Automation &amp; Control Gear</option>
+          <option>Multiple / Others</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Your Message / Requirements *</label><textarea id="msg" placeholder="Describe what you need — product name, quantity, destination port, etc."></textarea></div>
+      <button class="submit-btn" onclick="handleSubmit()">Send Inquiry →</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <div class="logo-wrap" style="margin-bottom:12px">
+      <div class="logo-icon">KE</div>
+      <div><div class="logo-text" style="color:white">Kush Enterprises</div><div class="logo-sub">India · Electrical Exports</div></div>
+    </div>
+    <p>A GST &amp; IEC registered Indian export firm, supplying quality electrical products to buyers worldwide from Gurugram, Haryana.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why-us">Why Choose Us</a></li>
+      <li><a href="#markets">Export Markets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Products</h4>
+    <ul>
+      <li><a href="#products">MCBs &amp; Switchgear</a></li>
+      <li><a href="#products">Distribution Boards</a></li>
+      <li><a href="#products">Wires &amp; Cables</a></li>
+      <li><a href="#products">Solar Components</a></li>
+      <li><a href="#products">Automation Gear</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2024 Kush Enterprises, Gurugram, India. All rights reserved.</span>
+  <span>GST Registered · IEC Code Holder · Proprietorship Firm</span>
+</div>
+
+<a class="wa-float" href="https://wa.me/917838051311" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function handleSubmit() {
+  var name = document.getElementById('fname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var msg = document.getElementById('msg').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in your name, email, and message.'); return; }
+  var country = document.getElementById('country').value;
+  var product = document.getElementById('product').value;
+  var company = document.getElementById('company').value;
+  var subject = encodeURIComponent('Export Inquiry – ' + (product || 'Electrical Products'));
+  var body = encodeURIComponent('Hi,\n\nI am interested in your products.\n\nName: ' + name + '\n' + (company ? 'Company: ' + company + '\n' : '') + 'Country: ' + (country || 'Not specified') + '\nProduct: ' + (product || 'Not specified') + '\n\nMessage:\n' + msg + '\n\nRegards,\n' + name);
+  window.location.href = 'mailto:sales@kushenterprisesindia.com?subject=' + subject + '&body=' + body;
+}
+</script>
+</body>
+</html>
